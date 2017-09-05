@@ -10,17 +10,17 @@ public:
 		: _x(x)
 		, _y(y)
 	{}
-	static void SetOutputPostition(int x,int y,HANDLE hout)
+	static void SetOutputPostition(int x,int y,HANDLE hout)//创建句柄
 	{
-		COORD pos;
+		COORD pos;//定义字符在屏幕上的位置
 		pos.X = x;
 		pos.Y = y;
-		SetConsoleCursorPosition(hout, pos);
+		SetConsoleCursorPosition(hout, pos);//控制台光标设置
 	}
 	void Plot(HANDLE hout)
 	{
-		SetOutputPostition(_x, _y, hout);
-		cout << "��";
+		SetOutputPostition(_x, _y, hout);//设置到x,y处打印'■'
+		cout << "¡ö";
 	}
 	void Clear(HANDLE hout)
 	{
@@ -34,7 +34,7 @@ public:
 	}
 	void Clear()
 	{
-		HANDLE hout = GetStdHandle(STD_OUTPUT_HANDLE);
+		HANDLE hout = GetStdHandle(STD_OUTPUT_HANDLE);//从标准输出流中获取句柄
 		cout << " ";
 	}
 	bool operator==(Point& point)
